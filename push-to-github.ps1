@@ -1,35 +1,46 @@
-# Git push script for todo-app
+# Git Push Script for Todo App
+Write-Host "🚀 Pushing Todo App to GitHub..." -ForegroundColor Green
+Write-Host ""
+
 Set-Location "C:\projects\todo-app"
 
-Write-Host "Initializing git repository..." -ForegroundColor Green
+# Initialize git if needed
 if (-not (Test-Path .git)) {
+    Write-Host "Initializing git repository..." -ForegroundColor Yellow
     git init
 }
 
-Write-Host "Adding all files..." -ForegroundColor Green
-git add .
+# Add remote
+Write-Host "Setting up remote repository..." -ForegroundColor Yellow
+git remote remove origin 2>$null
+git remote add origin https://github.com/jayna0203/test_chapter247.git
 
-Write-Host "Checking status..." -ForegroundColor Green
-git status
-
-Write-Host "Committing changes..." -ForegroundColor Green
-git commit -m "Initial commit: Todo Task Management App with auto-logout feature"
-
-Write-Host "Adding remote repository..." -ForegroundColor Green
-$remoteExists = git remote | Select-String -Pattern "origin"
-if (-not $remoteExists) {
-    git remote add origin https://github.com/jayna0203/test_chapter247.git
-} else {
-    Write-Host "Remote 'origin' already exists. Updating..." -ForegroundColor Yellow
-    git remote set-url origin https://github.com/jayna0203/test_chapter247.git
-}
-
-Write-Host "Setting branch to main..." -ForegroundColor Green
+# Set branch to main
+Write-Host "Setting branch to main..." -ForegroundColor Yellow
 git branch -M main
 
-Write-Host "Pushing to GitHub..." -ForegroundColor Green
-Write-Host "Note: You may need to authenticate with GitHub credentials" -ForegroundColor Yellow
+# Add all files
+Write-Host "Adding all files..." -ForegroundColor Yellow
+git add .
+
+# Check status
+Write-Host ""
+Write-Host "Files to be committed:" -ForegroundColor Cyan
+git status --short
+
+# Commit
+Write-Host ""
+Write-Host "Committing changes..." -ForegroundColor Yellow
+$commitMessage = "Complete Todo App: Backend API, Authentication, Auto-logout, Password Toggle, CSS Modules"
+git commit -m $commitMessage
+
+# Push
+Write-Host ""
+Write-Host "Pushing to GitHub..." -ForegroundColor Yellow
+Write-Host "Note: You may be prompted for GitHub credentials" -ForegroundColor Cyan
 git push -u origin main
 
-Write-Host "Done!" -ForegroundColor Green
+Write-Host ""
+Write-Host "✅ Done! Check your repository at:" -ForegroundColor Green
+Write-Host "https://github.com/jayna0203/test_chapter247" -ForegroundColor Cyan
 
