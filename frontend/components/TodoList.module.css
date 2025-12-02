@@ -1,0 +1,95 @@
+.emptyState {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.emptyText {
+  color: #6b7280;
+  font-size: 1.125rem;
+}
+
+.todoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.todoItem:hover {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  border-color: #d1d5db;
+  transform: translateX(4px);
+}
+
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+  accent-color: #8b5cf6;
+  border-radius: 0.25rem;
+}
+
+.checkbox:focus {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+.todoContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.todoText {
+  color: #1f2937;
+  font-size: 0.9375rem;
+  margin: 0;
+  word-wrap: break-word;
+  transition: all 0.2s ease;
+}
+
+.todoTextCompleted {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.deleteButton {
+  padding: 0.5rem 1rem;
+  color: #dc2626;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.todoItem:hover .deleteButton {
+  opacity: 1;
+}
+
+.deleteButton:hover {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.deleteButton:active {
+  transform: scale(0.95);
+}
+
